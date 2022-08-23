@@ -8,21 +8,32 @@
     <link rel="icon" type="image/x-icon" href="/assets/alchemy-favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600&family=Titillium+Web:wght@200;400;600&display=swap">
     <link rel="stylesheet" href="/styles/reset.css" />
     <link rel="stylesheet" href="/styles/global.css" />
-    <title>Web App</title>
+    <title>Get Sh*t Done</title>
 </head>
 
 <body>
     <header>
-        <img src="/assets/html_css_js.png">
-        <h1>Web App</h1>
+        <h1 class="is-size-1">Get Sh*t Done!</h1>
     </header>
 
     <main>
-
+        <h1 class="is-size-2">Sign Up</h1>
+        <form id="sign-up">
+            <label for="first-name">First Name</label>
+            <input type="text" name="first-name" class="input" placeholder="First Name" />
+            <label for="last-name">Last Name</label>
+            <input type="text" name="last-name" class="input" placeholder="Last Name" />
+            <label for="email">Email</label>
+            <input type="text" name="email" class="input" placeholder="email" />
+            <label for="password">Password</label>
+            <input type="text" name="password" class="input" placeholder="password" />
+            <button class="button is-primary">Submit</button>
+        </form>
     </main>
 
     <footer>&copy;2022 Software Developer</footer>
