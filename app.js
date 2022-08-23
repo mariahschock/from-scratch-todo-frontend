@@ -1,4 +1,6 @@
 // import functions and grab DOM elements
+import { signUpUser, redirectIfLoggedIn } from './fetch-utils.js';
+
 const signUpForm = document.getElementById('sign-up');
 // let state
 signUpForm.addEventListener('submit', async (e) => {
