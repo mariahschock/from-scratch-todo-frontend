@@ -1,7 +1,7 @@
-const BASE_URL = 'http://localhost:7890/api/v1/users';
+const BASE_URL = 'http://localhost:7890';
 
 export async function signUpUser(userInfo) {
-    const res = await fetch(`${BASE_URL}`, {
+    const res = await fetch(`${BASE_URL}/api/v1/users`, {
         method: 'POST',
         headers: {
             Accept: 'application/json',
@@ -18,24 +18,24 @@ export async function signUpUser(userInfo) {
     }
 }
 
-// export async function getUser() {
-//     const resp = await fetch(`${BASE_URL}/api/v1/users/me`, {
-//         method: 'GET',
-//         headers: {
-//             Accept: 'application/json',
-//             'Content-Type': 'application/json',
-//         },
-//         credentials: 'include',
-//     });
-//     if (resp.ok) {
-//         const user = await resp.json();
-//         return user;
-//     }
-// }
+export async function getUser() {
+    const resp = await fetch(`${BASE_URL}/api/v1/users/me`, {
+        method: 'GET',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+    });
+    if (resp.ok) {
+        const user = await resp.json();
+        return user;
+    }
+}
 
-// export async function redirectIfLoggedIn() {
-//     const user = await getUser();
-//     if (user) {
-//         location.replace('./tasks');
-//     } 
-// }
+export async function redirectIfLoggedIn() {
+    const user = await getUser();
+    if (user) {
+        location.replace('./tasks');
+    }
+}
