@@ -13,12 +13,21 @@
 <body>
     <header>
         <h1 class="is-size-1">Gettin' Sh*t Done</h1>
+        <button id="logout" class="button is-primary">Log Out</button>
     </header>
     <main>
-        <button id="logout" class="button is-primary">Log Out</button>
+        <p id="error"></p>
+        <form id="task-form">
+            <label>Task:
+                <input typ="text" name="task" />
+            </label>
+            <button>Add</button>
+        </form>
+        <section>
+            <h1 class="is-size-2">The Sh*t List</h1>
+            <ul id="task-list"></ul>
+        </section>
     </main>
-
-
 <script type="module" src="task.js"></script>
 </body>
 </html>

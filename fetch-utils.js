@@ -76,3 +76,15 @@ export async function logoutUser() {
         location.replace('../');
     } 
 }
+
+export async function createTask(task) {
+    const res = await fetch(`${BASE_URL}/api/v1/todos`, {
+        method: 'POST',
+        credentials: 'include',
+    }).send(task);
+    if (res.error) {
+        console.error(res.error.message);
+    } else {
+        return res.data;
+    }
+}
