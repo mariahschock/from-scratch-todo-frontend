@@ -1,7 +1,7 @@
-const BASE_URL = 'http://localhost:7890/api/v1/users';
+const BASE_URL = 'http://localhost:7890';
 
 export async function signUpUser(userInfo) {
-    const res = await fetch(`${BASE_URL}`, {
+    const res = await fetch(`${BASE_URL}/api/v1/users`, {
         method: 'POST',
         headers: {
             Accept: 'application/json',
