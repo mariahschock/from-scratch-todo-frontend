@@ -18,6 +18,26 @@ export async function signUpUser(userInfo) {
     }
 }
 
+export async function signInUser(userInfo) {
+    console.log(userInfo);
+    const res = await fetch(`${BASE_URL}/api/v1/users/sessions`, {
+        method: 'POST',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(userInfo),
+        credentials: 'include',
+    });
+    console.log(res.body);
+    const data = await res.json();
+    if (res.ok) {
+        location.replace('./tasks');
+    } else {
+        console.error(data.message);
+    }
+}
+
 export async function getUser() {
     const resp = await fetch(`${BASE_URL}/api/v1/users/me`, {
         method: 'GET',
@@ -35,8 +55,8 @@ export async function getUser() {
 
 export async function checkUser() {
     const user = await getUser();
-    if (user) {
-        location.replace('./tasks');
+    if (!user) {
+        location.replace('../');
     }
 }
 
