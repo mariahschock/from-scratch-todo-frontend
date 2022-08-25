@@ -74,14 +74,16 @@ export async function logoutUser() {
     });
     if (res.ok) {
         location.replace('../');
-    } 
+    }
 }
 
 export async function createTask(task) {
+    console.log(task);
     const res = await fetch(`${BASE_URL}/api/v1/todos`, {
         method: 'POST',
         credentials: 'include',
-    }).send(task);
+        body: JSON.stringify(),
+    });
     if (res.error) {
         console.error(res.error.message);
     } else {
