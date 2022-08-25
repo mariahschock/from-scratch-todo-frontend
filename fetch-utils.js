@@ -81,8 +81,12 @@ export async function createTask(task) {
     console.log(task);
     const res = await fetch(`${BASE_URL}/api/v1/todos`, {
         method: 'POST',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
         credentials: 'include',
-        body: JSON.stringify(),
+        body: JSON.stringify(task),
     });
     if (res.error) {
         console.error(res.error.message);

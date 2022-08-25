@@ -13,12 +13,13 @@ logout.addEventListener('click', async () => {
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const listData = new FormData(form);
+    // console.log(listData.get('task'));
     const newTask = {
         task: listData.get('task'),
         completed: false,
     };
-    console.log(listData.get('task'));
     const data = await createTask(newTask);
+    console.log(data);
     if (data) {
         window.location.href = '/tasks';
     } else {
