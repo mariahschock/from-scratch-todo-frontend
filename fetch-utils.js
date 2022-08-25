@@ -74,17 +74,39 @@ export async function logoutUser() {
     });
     if (res.ok) {
         location.replace('../');
-    } 
+    }
 }
 
 export async function createTask(task) {
     const res = await fetch(`${BASE_URL}/api/v1/todos`, {
         method: 'POST',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
         credentials: 'include',
-    }).send(task);
+        body: JSON.stringify(task),
+    });
     if (res.error) {
         console.error(res.error.message);
     } else {
-        return res.data;
+        return res.json(res.data);
+    }
+}
+
+export async function getTasks() {
+    const res = await fetch(`${BASE_URL}/api/v1/todos`, {
+        method: 'GET',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+    });
+    console.log(res.body);
+    if (res.error) {
+        console.error(res.error.message);
+    } else {
+        return res.json(res.data);
     }
 }
