@@ -1,10 +1,11 @@
-import { checkUser, createTask, logoutUser } from '../fetch-utils.js';
+import { checkUser, createTask, getTasks, logoutUser } from '../fetch-utils.js';
 checkUser();
+import { renderTask } from '../render-utils.js';
 
 const logout = document.getElementById('logout');
 const form = document.getElementById('task-form');
 const error = document.getElementById('error');
-// const taskEl = document.getElementById('task-list');
+const taskEl = document.getElementById('task-list');
 
 logout.addEventListener('click', async () => {
     await logoutUser();
@@ -27,6 +28,18 @@ form.addEventListener('submit', async (e) => {
     }
 });
 
-// async function displayTasks() {
-//     taskEl.textContent = '';
-// }
+async function displayTasks() {
+    taskEl.textContent = '';
+    const tasks = await getTasks();
+    const taskArray = tasks.tasks;
+    console.log(tasks);
+    if (taskArray) {
+        for (let task of taskArray) {
+            const taskDiv = renderTask(task);
+            taskEl.append(taskDiv);
+        }
+    } else {
+        error.textContent = 'Cute but no.';
+    }
+}
+displayTasks();

@@ -78,7 +78,6 @@ export async function logoutUser() {
 }
 
 export async function createTask(task) {
-    console.log(task);
     const res = await fetch(`${BASE_URL}/api/v1/todos`, {
         method: 'POST',
         headers: {
@@ -91,6 +90,23 @@ export async function createTask(task) {
     if (res.error) {
         console.error(res.error.message);
     } else {
-        return res.data;
+        return res.json(res.data);
+    }
+}
+
+export async function getTasks() {
+    const res = await fetch(`${BASE_URL}/api/v1/todos`, {
+        method: 'GET',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+    });
+    console.log(res.body);
+    if (res.error) {
+        console.error(res.error.message);
+    } else {
+        return res.json(res.data);
     }
 }
