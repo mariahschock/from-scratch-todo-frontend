@@ -14,13 +14,11 @@ logout.addEventListener('click', async () => {
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const listData = new FormData(form);
-    // console.log(listData.get('task'));
     const newTask = {
         task: listData.get('task'),
         completed: false,
     };
     const data = await createTask(newTask);
-    console.log(data);
     if (data) {
         window.location.href = '/tasks';
     } else {
@@ -32,7 +30,6 @@ async function displayTasks() {
     taskEl.textContent = '';
     const tasks = await getTasks();
     const taskArray = tasks.tasks;
-    console.log(tasks);
     if (taskArray) {
         for (let task of taskArray) {
             const taskDiv = renderTask(task);

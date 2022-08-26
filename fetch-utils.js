@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:7890';
+const BASE_URL = 'https://sh-t-list.herokuapp.com';
 
 export async function signUpUser(userInfo) {
     const res = await fetch(`${BASE_URL}/api/v1/users`, {
@@ -19,7 +19,6 @@ export async function signUpUser(userInfo) {
 }
 
 export async function signInUser(userInfo) {
-    console.log(userInfo);
     const res = await fetch(`${BASE_URL}/api/v1/users/sessions`, {
         method: 'POST',
         headers: {
@@ -29,7 +28,6 @@ export async function signInUser(userInfo) {
         body: JSON.stringify(userInfo),
         credentials: 'include',
     });
-    console.log(res.body);
     const data = await res.json();
     if (res.ok) {
         location.replace('./tasks');
@@ -103,7 +101,6 @@ export async function getTasks() {
         },
         credentials: 'include',
     });
-    console.log(res.body);
     if (res.error) {
         console.error(res.error.message);
     } else {
