@@ -6,8 +6,8 @@
 
 body {
     height: 100vh;
-    font-family: 'Rubik', san-serif;
-    background: var(--background);
+    font-family:monospace;
+    background: lightgray;
     display: grid;
     grid-template-rows: auto 1fr auto;
 }
@@ -23,6 +23,8 @@ header {
 main {
     padding: 20px;
 }
+
+
 
 footer {
     position: sticky;
